@@ -24,8 +24,11 @@ class LRUCache {
       }
       this.addToFront(key, value);
     }
+
+    console.log("cache", this.cache)
   }
 
+  // unshift
   addToFront(key, value) {
     const newNode = { key, value, next: null };
     if (!this.head) {
@@ -37,7 +40,7 @@ class LRUCache {
     }
     this.cache[key] = newNode;
   }
-
+  // pop
   removeLast() {
     if (!this.head) return;
 
@@ -57,7 +60,7 @@ class LRUCache {
       this.tail = current;
     }
   }
-
+  // setAt
   moveToFront(key) {
     const current = this.cache[key];
 
@@ -86,16 +89,29 @@ class LRUCache {
 }
 
 // Custom Hook in React JS 👇
-import { useRef } from "react";
+// import { useRef } from "react";
 
-const useLRUCache = (capacity) => {
-  const cacheRef = useRef(new LRUCache(capacity));
-  console.log(cacheRef.current);
+// const useLRUCache = (capacity) => {
+//   const cacheRef = useRef(new LRUCache(capacity));
+//   console.log(cacheRef.current);
 
-  const get = (key) => cacheRef.current.get(key);
-  const put = (key, value) => cacheRef.current.put(key, value);
+//   const get = (key) => cacheRef.current.get(key);
+//   const put = (key, value) => cacheRef.current.put(key, value);
 
-  return { get, put };
-};
+//   return { get, put };
+// };
 
-export default useLRUCache;
+// export default useLRUCache;
+
+
+let cache = new LRUCache(4);
+cache.put(1, 10);
+cache.put(2, 20);
+cache.put(3, 10);
+cache.put(4, 30);
+cache.put(1, 40);
+cache.put(2, 50);
+cache.put(3, 30);
+cache.put(4, 40);
+cache.put(1, 60);
+cache.put(4, 30);

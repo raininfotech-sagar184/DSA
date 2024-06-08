@@ -1,5 +1,5 @@
-class Node{
-    constructor(val){
+class Node {
+    constructor(val) {
         this.val = val;
         this.next = null;
         this.prev = null;
@@ -8,14 +8,14 @@ class Node{
 
 
 class DoublyLinkedList {
-    constructor(){
+    constructor() {
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
-    push(val){
+    push(val) {
         var newNode = new Node(val);
-        if(this.length === 0){
+        if (this.length === 0) {
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -27,4 +27,5 @@ class DoublyLinkedList {
         return this;
     }
 }
-        
+
+

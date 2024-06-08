@@ -1,38 +1,41 @@
-class BrowserHistory {
-  constructor(homepage) {
-    this.history = [homepage]; // Array to store history
-    this.currentIndex = 0;     // Index to keep track of the current page
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.cache = [];
   }
-
-  visit(url) {
-    // Remove all forward history
-    this.history = this.history.slice(0, this.currentIndex + 1);
-    // Add the new url
-    this.history.push(url);
-    // Move the current index to the new page
-    this.currentIndex++;
+  isCacheFull() {
+    return this.cache.length === this.capacity;
   }
-
-  back(steps) {
-    // Move back up to 'steps' times or to the start of the history
-    this.currentIndex = Math.max(0, this.currentIndex - steps);
-    return this.history[this.currentIndex];
+  getItem(item) {
+    return this.cache.indexOf(item);
   }
-
-  forward(steps) {
-    // Move forward up to 'steps' times or to the end of the history
-    this.currentIndex = Math.min(this.history.length - 1, this.currentIndex + steps);
-    return this.history[this.currentIndex];
+  setItem(item) {
+    const itemIndex = this.getItem(item);
+    if (itemIndex == -1) {
+      if (this.isCacheFull()) {
+        this.cache.pop();
+        this.cache.unshift(item);
+      } else {
+        this.cache.unshift(item);
+      }
+    }
+    if (itemIndex !== -1) {
+      this.cache.splice(itemIndex, 1);
+      this.cache.unshift(item);
+    }
+    console.log("cache", this.cache)
   }
 }
 
-// Example usage:
-const browserHistory = new BrowserHistory('homepage');
-browserHistory.visit('page1');        // Visit 'page1'
-browserHistory.visit('page2');        // Visit 'page2'
-console.log(browserHistory.back(1));  // Go back to 'page1', prints 'page1'
-console.log(browserHistory.back(1));  // Go back to 'homepage', prints 'homepage'
-console.log(browserHistory.forward(1)); // Go forward to 'page1', prints 'page1'
-browserHistory.visit('page3');        // Visit 'page3', erasing forward history
-console.log(browserHistory.back(2));  // Go back to 'homepage', prints 'homepage'
-console.log(browserHistory.forward(2)); // Go forward to 'page3', prints 'page3'
+
+let cache = new LRUCache(4);
+cache.setItem(10);
+cache.setItem(20);
+cache.setItem(10);
+cache.setItem(30);
+cache.setItem(40);
+cache.setItem(50);
+cache.setItem(30);
+cache.setItem(40);
+cache.setItem(60);
+cache.setItem(30);
