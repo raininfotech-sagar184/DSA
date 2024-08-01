@@ -88,5 +88,6 @@ list.push("GOODBYE")
 list.push("!") 
 list.push("<3")
 list.push(":)") 
+// list.push(":)") 
 
 

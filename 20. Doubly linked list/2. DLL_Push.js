@@ -28,4 +28,5 @@ class DoublyLinkedList {
     }
 }
 
-
+var list = new DoublyLinkedList()
+list.push("1")
