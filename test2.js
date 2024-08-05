@@ -3,4 +3,4 @@ var count
 count = 0
 count++
 count++
-console.log(count)
+console.log(Math.floor(1.9))
