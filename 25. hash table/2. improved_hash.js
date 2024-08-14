@@ -9,4 +9,4 @@ function hash(key, arrayLen) {
   return total;
 }
 
-console.log(hash("sagar",10))
+console.log(hash("yellow", 17))
