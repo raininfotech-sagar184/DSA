@@ -1,46 +1,47 @@
-function rearrangeArrayByFive(arr) {
-  const chunkSize = 5;
-  let result = [];
-
-  for (let i = 0; i < arr.length; i += chunkSize) {
-      // Get a chunk of 5 elements (or less if at the end of the array)
-      let chunk = arr.slice(i, i + chunkSize);
-      
-      if (chunk.length === chunkSize) {
-          // Rotate the chunk elements
-          let temp = chunk[0];
-          for (let j = 0; j < chunkSize - 1; j++) {
-              chunk[j] = chunk[j + 1];
+// Create an array and a Map with 1000 elements
+const array2 = [[1,2,3],[4,5],[1,2,3]]
+  
+function MaxVal(array){
+  let maxValue = 0
+  for(let i in array){
+    const current = array[i]
+    for(let j in array){
+      const compare = array[j]
+      if (i!==j) {
+         for(ci of current){
+          for(cj of compare){
+            const comp =Math.abs(ci-cj)  
+            if (maxValue<comp) {
+              maxValue = comp
+            } 
           }
-          chunk[chunkSize - 1] = temp;
+         }
+  
+        
       }
-      
-      // Append the rearranged chunk to the result
-      result = result.concat(chunk);
+    }
+  
+  }
+  return maxValue
+}
+var maxDistance = function(arrays) {
+  if (arrays.length < 2) return 0;
+
+  let globalMin = arrays[0][0];
+  let globalMax = arrays[0][arrays[0].length - 1];
+  let result = 0;
+
+  for (let i = 1; i < arrays.length; i++) {
+      const localMin = arrays[i][0];
+      const localMax = arrays[i][arrays[i].length - 1];
+
+      result = Math.max(result, Math.max(localMax - globalMin, globalMax - localMin));
+
+      globalMin = Math.min(globalMin, localMin);
+      globalMax = Math.max(globalMax, localMax);
   }
 
   return result;
-}
-
-let arrayOfObjects = [
-  { name: "ku4ANzdSwj", id: 89141 },
-  { name: "KU5Ty68D6Z", id: 3695 },
-  { name: "ku7JW8zDDR", id: 84679 },
-  { name: "KUcfyOtAAQ", id: 61653 },
-  { name: "KuEKm5OhaS", id: 27819 },
-  { name: "Another1", id: 12345 },
-  { name: "Another2", id: 67890 },
-  { name: "Another3", id: 11121 },
-  { name: "Another4", id: 31415 },
-  { name: "Another5", id: 16171 },
-  { name: "ku4ANzdSwj", id: 89141 },
-  { name: "KU5Ty68D6Z", id: 3695 },
-  { name: "ku7JW8zDDR", id: 84679 },
-  { name: "KUcfyOtAAQ", id: 61653 },
-  { name: "KuEKm5OhaS", id: 27819 },
-  // Add more elements as needed...
-];
-
-let rearrangedArray = rearrangeArrayByFive(arrayOfObjects);
-
-console.log(rearrangedArray);
+};
+console.log(MaxVal(array2))
+console.log(maxDistance(array2))

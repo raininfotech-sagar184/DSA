@@ -15,8 +15,7 @@ for (let index = 0; index < 100000; index++) {
 
 function createValueMap(items) {
     const valueMap = {};
-    for (let i = 0; i < items.length; i++) {
-        
+    for (let i = 0; i < items.length; i++) { 
         valueMap[items[i].id] = items[i];
     }
     console.log(valueMap)
