@@ -1,6 +1,6 @@
-const randomData = require("./../assets/randomData");
+const randomData = require("../assets/randomData");
 const nrbySortedData = require("./nrbySortedData../assets/nrbySortedData");
-const reverseSortedData = require("./../assets/reverseSortedData");
+const reverseSortedData = require("../assets/reverseSortedData");
 const data = [
   // { name: "aku4ANzdSwj", id: 89141 },
   // { name: "cKU5Ty68D6Z", id: 3695 },
