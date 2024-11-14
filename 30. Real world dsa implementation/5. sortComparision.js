@@ -1,5 +1,5 @@
 const randomData = require("../assets/randomData");
-const nrbySortedData = require("./nrbySortedData../assets/nrbySortedData");
+const nrbySortedData = require("../assets/nrbySortedData");
 const reverseSortedData = require("../assets/reverseSortedData");
 const data = [
   // { name: "aku4ANzdSwj", id: 89141 },
@@ -212,11 +212,12 @@ function measureSortingMethods() {
     // ==================================================>Nrby sorting methods 
       // { name: 'insertionSort', func: insertionSort },
       // { name: 'bubbleSort', func: bubbleSort },
+    // ==================================================>reverse sorting methods
+      // { name: 'shellSort', func: shellSort },
     // ==================================================>Other sorting methods
       // { name: 'mergeSort', func: mergeSort },
       // { name: 'quickSort', func: quickSort }, 
-      // { name: 'radixSort', func: radixSort },
-      // { name: 'shellSort', func: shellSort },
+      // { name: 'radixSort', func: radixSort }, 
       // { name: 'selectionSort', func: selectionSort }, 
       // { name: 'countingSort', func: countingSort },
   ];

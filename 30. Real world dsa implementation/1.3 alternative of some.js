@@ -16,8 +16,7 @@ console.time("Map.has()");
 for (let i = 0; i < 100000; i++) {
     mapObj.has(complement);
 }
-console.timeEnd("Map.has()");
-
+console.timeEnd("Map.has()"); 
 // Check time using Array.some() 7.268s
 console.log("Array.some() Method:");
 console.time("Array.some()");
@@ -30,7 +29,7 @@ console.timeEnd("Array.some()");
 
 //=============================================================================================> CRUD on Map()
 
-
+ 
 // Initialize the Map with some data
 const map = new Map();
 for (let i = 0; i < 1000; i++) {
